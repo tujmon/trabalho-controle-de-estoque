@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+
 #define true 1
+
 int count = 0;
 
 typedef struct produto
@@ -12,8 +14,11 @@ typedef struct produto
 	char codigo_simp[9];
 } p;
 
+//funções
 void cadastra_produto(p *prod, char *nomeProduto, char *paisOrigem, int quantidadeItens);
 void codigos(char *rCod, char *pais);
+
+
 int main(void)
 {
 
