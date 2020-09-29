@@ -1,23 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
+#include "functions.h"
 #define true 1
-
-int count = 0;
-
-typedef struct produto
-{
-	char nome_produto[51];
-	char pais_origem[51];
-	int quantidade_itens;
-	char codigo_simp[9];
-} p;
-
-//funções
-void cadastra_produto(p *prod, char *nomeProduto, char *paisOrigem, int quantidadeItens);
-void codigos(char *rCod, char *pais);
-
 
 int main(void)
 {
@@ -139,16 +121,13 @@ int main(void)
 			getchar();
 			scanf("%[^\n]s", codigo);
 			getchar();
-			for (i = 0; i <= count; i++)
+
+			if (strcmp(codigo, prod[count].codigo_simp) == 0)
 			{
-				if (strcmp(codigo, prod[count].codigo_simp) != 0)
-				{
-					entrada = 1;
-					puts("Código inválido!");
-					break;
-				}
+				puts("Código inválido!");
+				break;
 			}
-			if (entrada == 1)
+			else
 			{
 				while (true)
 				{
@@ -160,13 +139,14 @@ int main(void)
 					{
 						puts("valor inválido, Digite novamente");
 					}
-					else if (qntVenda >= prod[i].quantidade_itens)
+					else if (qntVenda > prod[i].quantidade_itens)
 					{
 						puts("Não existem itens suficientes para este produto");
 					}
 					else
 					{
 						prod[i].quantidade_itens -= qntVenda;
+						break;
 					}
 				}
 			}
@@ -208,29 +188,4 @@ int main(void)
 		}
 	}
 	return 0;
-}
-
-void codigos(char *rCod, char *pais)
-{
-	char y[4];
-	int i, j = 0;
-	sprintf(y, "%03i", count);
-	for (i = 0; i < 2; i++)
-	{
-		rCod[i] = toupper(pais[i]);
-	}
-	rCod[i] = 'I';
-	rCod[i + 1] = 'F';
-	rCod[i + 2] = 'B';
-	for (i = i + 3; i < 8; i++, j++)
-	{
-		rCod[i] = y[j];
-	};
-}
-
-void cadastra_produto(p *prod, char *nomeProduto, char *paisOrigem, int quantidadeItens)
-{
-	strcpy(prod[count].nome_produto, nomeProduto);
-	strcpy(prod[count].pais_origem, paisOrigem);
-	prod[count].quantidade_itens = quantidadeItens;
 }
