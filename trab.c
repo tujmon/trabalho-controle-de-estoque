@@ -12,7 +12,6 @@ typedef struct produto
 } p;
 
 void cadastra_produto(p *prod, char *nomeProduto, char *paisOrigem, int quantidadeItens);
-char atualizar();
 void codigos(char *rCod, char *pais);
 int main(void)
 {
