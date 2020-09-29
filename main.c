@@ -39,7 +39,7 @@ int main(void)
 			puts("Digite a quantidade de produtos: ");
 			scanf("%d", &prod[count].quantidade_itens);
 
-			cadastra_produto(&prod[count], prod[count].nome_produto, prod[count].pais_origem, prod[count].quantidade_itens); //
+			cadastra_produto(&prod[count], prod[count].nome_produto, prod[count].pais_origem, prod[count].quantidade_itens);
 
 			codigos(prod[count].codigo_simp, prod[count].pais_origem);
 
