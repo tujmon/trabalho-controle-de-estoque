@@ -7,7 +7,7 @@ Alunos:
 	Walter Felizardo Almada Silva
   
 Método de Compilação:
-	gcc trab.c -o Trabalho
+	gcc trab.c functions.c -o trabalho
 
 
 Ambiente de execução:
