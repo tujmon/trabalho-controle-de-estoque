@@ -3,6 +3,7 @@
 #include <ctype.h>
 #define true 1
 int count = 0;
+
 typedef struct produto
 {
 	char nome_produto[51];
